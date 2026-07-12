@@ -90,6 +90,19 @@ letter-spacing: 0.12em;
 text-transform: uppercase;
 color: rgba(255,255,255,0.3);
 }
+.back-btn {
+background: none;
+border: none;
+color: rgba(255,255,255,0.3);
+font-family: inherit;
+font-size: 0.78rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+cursor: pointer;
+padding: 0;
+transition: color 0.2s;
+}
+.back-btn:hover { color: rgba(255,255,255,0.7); }
 .close-btn {
 background: none;
 border: none;
@@ -134,6 +147,24 @@ color: rgba(255, 243, 225, 0.6);
 font-weight: 300;
 font-style: normal;
 }
+.show-link {
+background: none;
+border: none;
+padding: 0;
+cursor: pointer;
+font-family: 'Spectral', serif;
+font-size: 0.95rem;
+font-weight: 300;
+color: rgba(255, 243, 225, 0.75);
+transition: color 0.2s;
+}
+.show-link:hover { color: #fff; }
+.show-art {
+width: 100%;
+border-radius: 4px;
+display: block;
+margin-bottom: 1.5rem;
+}
 </style>
 </head>
 <body>
@@ -172,8 +203,16 @@ Get in touch — <a href="mailto:hi@pleaseandthanks.pro">hi@pleaseandthanks.pro<
 <button class="close-btn" onclick="closePanel()">✕</button>
 </div>
 <div class="panel-body">
-Manifesto
+<button class="show-link" onclick="goTo('showsPanel','manifestoPanel')">Manifesto</button>
 </div>
+</div>
+
+<div class="about-panel" id="manifestoPanel">
+<div class="panel-header">
+<button class="back-btn" onclick="goTo('manifestoPanel','showsPanel')">‹ Shows</button>
+<button class="close-btn" onclick="closePanel()">✕</button>
+</div>
+<img class="show-art" src="Manifesto_Key_Art_2400x2400.jpg" alt="Manifesto show art" />
 <div class="panel-contact">
 <a href="https://podcasts.apple.com/us/podcast/coming-soon-dan-taberskis-manifesto/id6784815230?i=1000774390943" target="_blank" rel="noopener">APPLE</a> &amp; <a href="https://open.spotify.com/show/033Fgee07s3zNUE7Ix0cwY?si=7b31182d74b74bb6" target="_blank" rel="noopener">SPOTIFY</a>
 </div>
@@ -187,6 +226,10 @@ document.getElementById('overlay').classList.add('open');
 function closePanel() {
 document.querySelectorAll('.about-panel.open').forEach(p => p.classList.remove('open'));
 document.getElementById('overlay').classList.remove('open');
+}
+function goTo(fromId, toId) {
+document.getElementById(fromId).classList.remove('open');
+document.getElementById(toId).classList.add('open');
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
 </script>
