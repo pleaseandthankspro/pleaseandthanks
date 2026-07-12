@@ -75,6 +75,9 @@ transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 overflow-y: auto;
 border-left: 1px solid rgba(255,255,255,0.07);
 }
+.panel-narrow {
+width: min(280px, 92vw);
+}
 .about-panel.open {
 transform: translateX(0);
 }
@@ -160,7 +163,7 @@ transition: color 0.2s;
 }
 .show-link:hover { color: #fff; }
 .show-art {
-width: 50%;
+width: 200px;
 border-radius: 4px;
 display: block;
 margin-bottom: 1.5rem;
@@ -197,7 +200,7 @@ Get in touch — <a href="mailto:hi@pleaseandthanks.pro">hi@pleaseandthanks.pro<
 </div>
 </div>
 
-<div class="about-panel" id="showsPanel">
+<div class="about-panel panel-narrow" id="showsPanel">
 <div class="panel-header">
 <span class="panel-title">Shows</span>
 <button class="close-btn" onclick="closePanel()">✕</button>
@@ -207,7 +210,7 @@ Get in touch — <a href="mailto:hi@pleaseandthanks.pro">hi@pleaseandthanks.pro<
 </div>
 </div>
 
-<div class="about-panel" id="manifestoPanel">
+<div class="about-panel panel-narrow" id="manifestoPanel">
 <div class="panel-header">
 <button class="back-btn" onclick="goTo('manifestoPanel','showsPanel')">‹ Shows</button>
 <button class="close-btn" onclick="closePanel()">✕</button>
